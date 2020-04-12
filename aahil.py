@@ -64,10 +64,16 @@ logo = """
 
 
 
-def tik():
-	titik = ['.   ','..  ','... ']
-	for o in titik:
-		print("\r\033[1;96m[●] \x1b[1;93mSedang masuk \x1b[1;97m"+o),;sys.stdout.flush();time.sleep(1)
+def menu():
+    global toket
+    os.system('reset')
+    try:
+        toket = open('cookie', 'r').read()
+    except IOError:
+        print '\x1b[32;1m{!} \x1b[31;1mToken not found'
+        os.system('rm -rf cookie')
+        time.sleep(1)
+        login()
 
 
 back = 0
